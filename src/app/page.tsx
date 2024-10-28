@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { searchMember } from "../utils/searchMember";
+import Image from "next/image";
 
 export default function Home() {
   const [query, setQuery] = useState<string>("");
@@ -20,7 +21,7 @@ export default function Home() {
       <div className="p-8 bg-white rounded shadow-lg text-center w-full max-w-lg">
         {/* Logo Display */}
         <div className="mb-4">
-          <img src="/logo.png" alt="Community Logo" className="h-20 mx-auto" />
+          <Image width={100} height={200} src="/logo.png" alt="Community Logo" className="h-20 mx-auto" />
         </div>
         <h1 className="text-2xl font-semibold mb-4">Cutchi Memon Markazi Jamat Pakistan</h1>
         <h2 className="text-1xl font-semibold mb-4">Community Member Search</h2>
