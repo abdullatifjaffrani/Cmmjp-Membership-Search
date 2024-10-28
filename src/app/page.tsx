@@ -28,17 +28,17 @@ export default function Home() {
         <div className="mb-4">
           <Image width={100} height={200} src="/logo.png" alt="Community Logo" className="h-20 mx-auto" />
         </div>
-        <h1 className="text-2xl text-black font-semibold mb-4">Cutchi Memon Markazi Jamat Pakistan</h1>
-        <h2 className="text-1xl text-black font-semibold mb-4">Community Member Search</h2>
+        <h1 className="text-2xl text-gray-950 font-semibold mb-4">Cutchi Memon Markazi Jamat Pakistan</h1>
+        <h2 className="text-1xl text-gray-950 font-semibold mb-4">Community Member Search</h2>
 
-        <div className="mb-6">
+        <div className="mb-6 text-gray-900">
           <select
             value={searchBy}
             onChange={(e) => setSearchBy(e.target.value as "nic" | "membership")}
             className="border p-2 mr-2"
           >
-            <option className="text-black" value="nic">Search by NIC</option>
-            <option className="text-black" value="membership">Search by Membership No</option>
+            <option className="text-gray-950" value="nic">Search by NIC</option>
+            <option className="text-gray-950" value="membership">Search by Membership No</option>
           </select>
 
           <input
@@ -46,7 +46,7 @@ export default function Home() {
             placeholder={`Enter ${searchBy === "nic" ? "NIC" : "Membership No"}`}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="border p-2 mr-2 text-black"
+            className="border p-2 mr-2 text-gray-950"
           />
           <button
             onClick={handleSearch}
@@ -65,31 +65,31 @@ export default function Home() {
             <h2 className="text-xl font-semibold mb-4 text-black">Member Details</h2>
             <table className="table-auto w-full border-collapse border border-gray-300">
               <tbody>
-                <tr className="border text-black border-gray-300">
+                <tr className="border text-gray-950 border-gray-300">
                   <td className="p-2 font-bold bg-gray-100">Name</td>
                   <td className="p-2">{result.name}</td>
                 </tr>
-                <tr className="border text-black border-gray-300">
+                <tr className="border text-gray-950 border-gray-300">
                   <td className="p-2 font-bold bg-gray-100">Father Name</td>
                   <td className="p-2">{result.fatherName}</td>
                 </tr>
-                <tr className="border text-black border-gray-300">
+                <tr className="border text-gray-950 border-gray-300">
                   <td className="p-2 font-bold bg-gray-100">Cast</td>
                   <td className="p-2">{result.surName}</td>
                 </tr>
-                <tr className="border text-black border-gray-300">
+                <tr className="border text-gray-950 border-gray-300">
                   <td className="p-2 font-bold bg-gray-100">NIC/CNIC No</td>
                   <td className="p-2">{result.nic}</td>
                 </tr>
-                <tr className="border text-black border-gray-300">
+                <tr className="border text-gray-950 border-gray-300">
                   <td className="p-2 font-bold bg-gray-100">Area Jamat</td>
                   <td className="p-2">{result.areaJamat}</td>
                 </tr>
-                <tr className="border text-black border-gray-300">
+                <tr className="border text-gray-950 border-gray-300">
                   <td className="p-2 font-bold bg-gray-100">Address</td>
                   <td className="p-2">{result.address}</td>
                 </tr>
-                <tr className="border text-black border-gray-300">
+                <tr className="border text-gray-950 border-gray-300">
                   <td className="p-2 font-bold bg-gray-100">Mobile No</td>
                   <td className="p-2">{result.mobileNo}</td>
                 </tr>
