@@ -2,17 +2,22 @@
 
 import { useState } from "react";
 import { searchMember } from "../utils/searchMember";
+import { Member } from '../data/members'; // Import the Member interface
 import Image from "next/image";
 
 export default function Home() {
   const [query, setQuery] = useState<string>("");
   const [searchBy, setSearchBy] = useState<"nic" | "membership">("nic"); // State for dropdown selection
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<Member | null>(null);
   const [searched, setSearched] = useState<boolean>(false);
 
   const handleSearch = () => {
-    const member = searchMember(query, searchBy); // Pass searchBy type to the search function
-    setResult(member);
+    const member = searchMember(query, searchBy);
+    if (member) {
+      setResult(member);
+    } else {
+      setResult(null); // Handle the case where no member is found
+    }
     setSearched(true);
   };
 
