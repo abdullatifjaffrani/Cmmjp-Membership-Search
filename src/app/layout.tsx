@@ -14,8 +14,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Community Member Search App",
-  description: "Created By Abdul Latif Jaffrani",
+  title: "CMMJP Members Search App",
+  description: "by Abdul Latif Jaffrani",
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
