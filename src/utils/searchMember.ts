@@ -1,18 +1,21 @@
-import { Member } from "../data/members";
+import { Member } from "../data/members"; // Adjust path if needed
 
-// Define a union type for valid search keys
-type SearchKey = "nic" | "membershipNo" | "surName" | "areaJamat" | "name";
+export const searchMember = (
+  query1: string,
+  searchBy1: keyof Member,
+  members: Member[],
+  query2?: string,
+  searchBy2?: keyof Member
+): Member[] => {
+  const lowerCaseQuery1 = query1.trim().toLowerCase();
+  const lowerCaseQuery2 = query2?.trim().toLowerCase(); // Optional second query
 
-export const searchMember = (query: string, searchBy: SearchKey, members: Member[]): Member[] => {
-  const lowerCaseQuery = query.trim().toLowerCase();
+  return members.filter((member) => {
+    const match1 = member[searchBy1]?.toLowerCase().includes(lowerCaseQuery1) || false;
+    const match2 = searchBy2 && lowerCaseQuery2
+      ? member[searchBy2]?.toLowerCase().includes(lowerCaseQuery2) || false
+      : true; // If no second query, treat as true (don't filter out)
 
-  if (searchBy === "nic" || searchBy === "membershipNo") {
-    // Exact match for NIC or Membership No
-    return members.filter((member) => member[searchBy]?.toLowerCase() === lowerCaseQuery);
-  }
-
-  // For partial match searches
-  return members.filter((member) =>
-    member[searchBy]?.toLowerCase().includes(lowerCaseQuery)
-  );
+    return match1 && match2;
+  });
 };
