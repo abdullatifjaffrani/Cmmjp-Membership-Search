@@ -120,13 +120,13 @@ export default function Home() {
               <table className="table-auto w-full border-collapse border border-gray-300">
   <thead>
     <tr>
-      <th className="p-1 text-xs bg-gray-100 ">Serial No</th>
-      <th className="p-1 text-xs bg-gray-100 ">Membership No</th>
-      <th className="p-1 text-xs bg-gray-100">Name</th>
-      <th className="p-1 text-xs bg-gray-100">Father Name</th>
-      <th className="p-1 text-xs bg-gray-100">Sur Name</th>
-      <th className="p-1 text-xs bg-gray-100">Area Jamat</th>
-      <th className="p-1 text-xs bg-gray-100 max-w-[150px] truncate">Mobile Number</th>
+      <th className="p-1 text-xs text-gray-950 bg-gray-100 ">Serial No</th>
+      <th className="p-1 text-xs text-gray-950 bg-gray-100 ">Membership No</th>
+      <th className="p-1 text-xs text-gray-950 bg-gray-100">Name</th>
+      <th className="p-1 text-xs text-gray-950 bg-gray-100">Father Name</th>
+      <th className="p-1 text-xs text-gray-950 bg-gray-100">Sur Name</th>
+      <th className="p-1 text-xs text-gray-950 bg-gray-100">Area Jamat</th>
+      <th className="p-1 text-xs text-gray-950 bg-gray-100 max-w-[150px] truncate">Mobile Number</th>
     </tr>
   </thead>
   <tbody>
