@@ -48,7 +48,7 @@ export default function Home() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="p-8 bg-white rounded shadow-lg text-center w-full max-w-lg">
+      <div className="p-0.5 bg-white rounded shadow-lg text-center w-full max-w-lg">
         {/* Logo Display */}
         <div className="mb-4">
           <Image width={100} height={200} src="/logo.png" alt="Community Logo" className="h-20 mx-auto" />
@@ -68,7 +68,7 @@ export default function Home() {
             <option className="text-gray-950" value="areaJamat">Search by Area Jamat</option>
             <option className="text-gray-950" value="name">Search by Name</option>
           </select>
-
+          <br/>
           <input
             type="text"
             placeholder={`Enter ${searchBy === "nic" ? "NIC" : searchBy === "membershipNo" ? "Membership No" : searchBy === "surName" ? "Surname" : searchBy === "areaJamat" ? "Area Jamat" : "Name"}`}
@@ -120,13 +120,13 @@ export default function Home() {
               <table className="table-auto w-full border-collapse border border-gray-300">
   <thead>
     <tr>
-      <th className="p-1 text-xs text-gray-950 bg-gray-100 ">Serial No</th>
-      <th className="p-1 text-xs text-gray-950 bg-gray-100 ">Membership No</th>
+      <th className="p-1 text-xs text-gray-950 bg-gray-100 ">Sno</th>
+      <th className="p-1 text-xs text-gray-950 bg-gray-100 ">Mem. No</th>
       <th className="p-1 text-xs text-gray-950 bg-gray-100">Name</th>
       <th className="p-1 text-xs text-gray-950 bg-gray-100">Father Name</th>
       <th className="p-1 text-xs text-gray-950 bg-gray-100">Sur Name</th>
       <th className="p-1 text-xs text-gray-950 bg-gray-100">Area Jamat</th>
-      <th className="p-1 text-xs text-gray-950 bg-gray-100 max-w-[150px] truncate">Mobile Number</th>
+      <th className="p-1 text-xs text-gray-950 bg-gray-100">Mobile Number</th>
     </tr>
   </thead>
   <tbody>
@@ -138,7 +138,7 @@ export default function Home() {
         <td className="p-1 text-xs">{member.fatherName}</td>
         <td className="p-1 text-xs">{member.surName}</td>
         <td className="p-1 text-xs">{member.areaJamat}</td>
-        <td className="p-1 text-xs max-w-[150px] truncate">{member.mobileNo}</td>
+        <td className="p-1 text-xs">{member.mobileNo}</td>
       </tr>
     ))}
   </tbody>
