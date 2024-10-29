@@ -48,7 +48,7 @@ export default function Home() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="p-0.5 bg-white rounded shadow-lg text-center w-full max-w-lg">
+      <div className="p-0.3 bg-white rounded shadow-lg text-center w-full max-w-lg">
         {/* Logo Display */}
         <div className="mb-4">
           <Image width={100} height={200} src="/logo.png" alt="Community Logo" className="h-20 mx-auto" />
@@ -74,8 +74,9 @@ export default function Home() {
             placeholder={`Enter ${searchBy === "nic" ? "NIC" : searchBy === "membershipNo" ? "Membership No" : searchBy === "surName" ? "Surname" : searchBy === "areaJamat" ? "Area Jamat" : "Name"}`}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="border p-2 mr-2 text-gray-950"
+            className="border px-4 py-2 mr-2 text-gray-950"
           />
+          <br />
           <button
             onClick={handleSearch}
             className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
@@ -120,25 +121,25 @@ export default function Home() {
               <table className="table-auto w-full border-collapse border border-gray-300">
   <thead>
     <tr>
-      <th className="p-1 text-xs text-gray-950 bg-gray-100 ">Sno</th>
-      <th className="p-1 text-xs text-gray-950 bg-gray-100 ">Mem. No</th>
-      <th className="p-1 text-xs text-gray-950 bg-gray-100">Name</th>
-      <th className="p-1 text-xs text-gray-950 bg-gray-100">Father Name</th>
-      <th className="p-1 text-xs text-gray-950 bg-gray-100">Sur Name</th>
-      <th className="p-1 text-xs text-gray-950 bg-gray-100">Area Jamat</th>
-      <th className="p-1 text-xs text-gray-950 bg-gray-100">Mobile Number</th>
+      <th className="p-0.5 text-xs text-gray-950 bg-gray-100 ">Sno</th>
+      <th className="p-0.5 text-xs text-gray-950 bg-gray-100 ">Mem. No</th>
+      <th className="p-0.5 text-xs text-gray-950 bg-gray-100">Name</th>
+      <th className="p-0.5 text-xs text-gray-950 bg-gray-100">Father Name</th>
+      <th className="p-0.5 text-xs text-gray-950 bg-gray-100">Sur Name</th>
+      <th className="p-0.5 text-xs text-gray-950 bg-gray-100">Area Jamat</th>
+      <th className="p-0.5 text-xs text-gray-950 bg-gray-100">Mobile Number</th>
     </tr>
   </thead>
   <tbody>
     {result.map((member, index) => (
       <tr key={index} className="border text-gray-950 border-gray-300">
-        <td className="p-1 text-xs">{index + 1}</td>
-        <td className="p-1 text-xs">{member.membershipNo}</td>
-        <td className="p-1 text-xs">{member.name}</td>
-        <td className="p-1 text-xs">{member.fatherName}</td>
-        <td className="p-1 text-xs">{member.surName}</td>
-        <td className="p-1 text-xs">{member.areaJamat}</td>
-        <td className="p-1 text-xs">{member.mobileNo}</td>
+        <td className="p-0.5 text-xs">{index + 1}</td>
+        <td className="p-0.5 text-xs">{member.membershipNo}</td>
+        <td className="p-0.5 text-xs">{member.name}</td>
+        <td className="p-0.5 text-xs">{member.fatherName}</td>
+        <td className="p-0.5 text-xs">{member.surName}</td>
+        <td className="p-0.5 text-xs">{member.areaJamat}</td>
+        <td className="p-0.5 text-xs">{member.mobileNo}</td>
       </tr>
     ))}
   </tbody>
