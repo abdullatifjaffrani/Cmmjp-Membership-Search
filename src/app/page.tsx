@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Member, members } from "../data/members";
 import Image from "next/image";
+import { exportToExcel, exportToCSV } from "../components/ExportButtons"; 
 
 // Custom type to restrict searchable fields
 type SearchableFields = "nic" | "membershipNo" | "surName" | "areaJamat" | "name";
@@ -12,7 +13,6 @@ export default function Home() {
   const [query2, setQuery2] = useState<string>("");
   const [searchBy1, setSearchBy1] = useState<SearchableFields>("nic");
   const [searchBy2, setSearchBy2] = useState<"" | SearchableFields>("");
-
   const [result, setResult] = useState<Member[]>([]);
   const [searched, setSearched] = useState<boolean>(false);
 
@@ -50,6 +50,14 @@ export default function Home() {
 
       return match1 && match2;
     });
+  };
+
+  const handleExportToExcel = () => {
+    exportToExcel(result, "members_data");
+  };
+
+  const handleExportToCSV = () => {
+    exportToCSV(result, "members_data");
   };
 
   const handleSearchBy1Change = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -136,8 +144,8 @@ const renderGridView = () => (
           </tr>
         </thead>
         <tbody>
-          {result.map((member, index) => (
-            <tr key={index} className="border text-gray-950 border-gray-300">
+        {result.map((member, index) => (
+          <tr key={index} className="border text-gray-950 border-gray-300">
               <td className="p-0.5 text-gray-950 text-xs">{index + 1}</td>
               <td className="p-0.5 text-gray-950 text-xs">{member.membershipNo}</td>
               <td className="p-0.5 text-gray-950 text-xs">{member.name}</td>
@@ -145,12 +153,12 @@ const renderGridView = () => (
               <td className="p-0.5 text-gray-950 text-xs">{member.surName}</td>
               <td className="p-0.5 text-gray-950 text-xs">{member.areaJamat}</td>
               <td className="p-0.5 text-gray-950 text-xs">{member.mobileNo}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
+              </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+);
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -206,7 +214,26 @@ const renderGridView = () => (
 
         {searched && result.length === 0 && <p className="text-red-500 mt-4">No member found</p>}
 
-        {result.length > 0 && (shouldRenderGridView() ? renderGridView() : renderDetailedView())}
+        {/* {result.length > 0 && (shouldRenderGridView() ? renderGridView() : renderDetailedView())} */}
+
+        {result.length > 0 && (
+  <div>
+    <h3 className="text-xl text-gray-900 font-semibold mb-4">Search Results:</h3>
+    {/* Render only one of the views based on the condition */}
+    {shouldRenderGridView() ? renderGridView() : renderDetailedView()} 
+  </div>
+)}
+
+        {result.length > 0 && (
+          <div className="mt-4 flex gap-4 justify-center">
+            <button onClick={handleExportToExcel} className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+              Export to Excel
+            </button>
+            <button onClick={handleExportToCSV} className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">
+              Export to CSV
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
